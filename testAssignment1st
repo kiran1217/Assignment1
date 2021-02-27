@@ -1,0 +1,7 @@
+@isTest
+public class isGoldAccountTest {
+    @isTest(SeeAllData=true)
+    static void testIsGold(){
+        isGoldAccount.isgold();
+    }
+}
