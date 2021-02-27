@@ -1,0 +1,4 @@
+trigger isGold on Opportunity (after insert, after update) {
+
+    isGoldAccount.isgold();
+}
