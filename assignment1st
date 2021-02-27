@@ -1,0 +1,31 @@
+public class isGoldAccount {
+
+    public static void isgold(){
+        
+        List<Opportunity> opp = new List<Opportunity>();
+        List<Id> idA = new List<Id>();
+        string query = 'Select AccountId,Amount from Opportunity';
+        opp = Database.query(query);
+        for(Opportunity op: opp){
+           idA.add(op.AccountId);    
+        }
+        List <Account> ac = new List<Account>();
+        String queryA = 'Select is_goldenAccount__c from Account where Id IN:idA';
+        ac = DataBase.query(queryA);
+        for(Opportunity op: opp){
+            for(Account a: ac ){
+                if(op.Amount>50000){
+                    a.is_goldenAccount__c=true;
+                }else{
+                    a.is_goldenAccount__c=false;
+                }
+            }
+                         
+        }
+        
+        update ac;
+        
+        
+        
+    }
+}
